@@ -24,12 +24,12 @@ class MyConfig {
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	
+
 	@Bean
 	PersonClient personClient() {
 		return new HttpPersonClient(restTemplate());
 	}
-	
+
 	@Bean
 	PersonService personService() {
 		return new PersonService(personClient());
@@ -37,13 +37,13 @@ class MyConfig {
 }
 
 class PersonService {
-	
+
 	private final PersonClient personClient;
-	
+
 	PersonService(PersonClient personClient) {
 		this.personClient = personClient;
 	}
-	
+
 	List<Person> people() {
 		List<Person> people = new ArrayList<>();
 		people.add(this.personClient.person(1));
@@ -58,7 +58,7 @@ interface PersonClient {
 
 class HttpPersonClient implements PersonClient {
 	private final RestTemplate restTemplate;
-	
+
 	public HttpPersonClient(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
 	}
@@ -72,7 +72,6 @@ class HttpPersonClient implements PersonClient {
 class Person {
 	public String name, surname;
 
-	
 	public Person() {
 	}
 
@@ -97,7 +96,5 @@ class Person {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
-	
-	
+
 }
