@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.net.URISyntaxException;
 import java.util.List;
 
 import org.assertj.core.api.BDDAssertions;
@@ -45,7 +44,7 @@ class DemoApplicationTests {
 	}
 
 	@Test
-	public void should_get_two_people_using_rest_assured() throws URISyntaxException {
+	public void should_get_two_people_using_rest_assured() {
 
 		RestAssured.given().baseUri("http://localhost:8081").when().get("/person/{id}", 1).then().statusCode(200)
 				.contentType("application/json").body("name", Matchers.equalTo("m1"));
