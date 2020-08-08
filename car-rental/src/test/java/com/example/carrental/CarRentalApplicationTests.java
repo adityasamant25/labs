@@ -14,10 +14,19 @@ class CarRentalApplicationTests {
 
 	@Test
 	public void should_return_a_list_of_frauds() {
-		String response = "[\"marchin\",\"josh\"]";
-		WireMock.stubFor(WireMock.get("/fraud").willReturn(WireMock.aResponse().withBody(response)));
+		String response = "[\"marcin\",\"josh\"]";
+		WireMock.stubFor(WireMock.get("/fraud123").willReturn(WireMock.aResponse().withBody(response)));
 
-		String object = new RestTemplate().getForObject("http://localhost:9876/fraud", String.class);
+		String object = new RestTemplate().getForObject("http://localhost:9876/fraud123", String.class);
+
+		BDDAssertions.then(object).isEqualTo(response);
+	}
+	
+	@Test
+	public void should_return_a_list_of_frauds_from_a_real_application() {
+		String response = "[\"marcin\",\"josh\"]";
+
+		String object = new RestTemplate().getForObject("http://localhost:9875/frauds", String.class);
 
 		BDDAssertions.then(object).isEqualTo(response);
 	}
