@@ -32,7 +32,7 @@ class FraudDetectionController {
 		this.source = source;
 	}
 
-	@GetMapping("/frauds")
+	@GetMapping("/fraud")
 	ResponseEntity<List<String>> frauds() {
 		return ResponseEntity.status(200).body(Arrays.asList("marcin", "josh"));
 	}
