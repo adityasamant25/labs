@@ -1,21 +1,22 @@
-package com.example.httpclient.model;
+package com.example.httpserver.model;
 
 import java.io.Serializable;
 
-public class LoanApplication implements Serializable {
+public class Client implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7838530803492100939L;
+	private static final long serialVersionUID = -8046427357558677790L;
+	
 	private String clientId;
 	long loanAmount;
 
-	public LoanApplication() {
+	public Client() {
 		super();
 	}
 
-	public LoanApplication(String clientId, long loanAmount) {
+	public Client(String clientId, long loanAmount) {
 		super();
 		this.clientId = clientId;
 		this.loanAmount = loanAmount;
@@ -39,7 +40,9 @@ public class LoanApplication implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LoanApplication [clientId=" + clientId + ", loanAmount=" + loanAmount + "]";
+		return "Client [clientId=" + clientId + ", loanAmount=" + loanAmount + "]";
 	}
+	
+	
 
 }

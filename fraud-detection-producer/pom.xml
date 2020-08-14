@@ -63,6 +63,7 @@
 				<version>2.2.4.RELEASE</version>
 				<extensions>true</extensions>
 				<configuration>
+					<baseClassForTests>com.example.httpserver.FraudBase</baseClassForTests>
 					<testFramework>JUNIT5</testFramework>
 				</configuration>
 			</plugin>

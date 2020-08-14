@@ -1,21 +1,21 @@
-package com.example.httpclient.model;
+package com.example.httpserver.model;
 
 import java.io.Serializable;
 
-public class LoanApplication implements Serializable {
+public class FraudCheck implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7838530803492100939L;
+	private static final long serialVersionUID = 3866296885152580663L;
 	private String clientId;
 	long loanAmount;
 
-	public LoanApplication() {
+	public FraudCheck() {
 		super();
 	}
 
-	public LoanApplication(String clientId, long loanAmount) {
+	public FraudCheck(String clientId, long loanAmount) {
 		super();
 		this.clientId = clientId;
 		this.loanAmount = loanAmount;
@@ -39,7 +39,8 @@ public class LoanApplication implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LoanApplication [clientId=" + clientId + ", loanAmount=" + loanAmount + "]";
+		return "FraudCheck [clientId=" + clientId + ", loanAmount=" + loanAmount + "]";
 	}
-
+	
+	
 }
