@@ -1,6 +1,7 @@
 package com.example.httpclient.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,6 +17,15 @@ import com.example.httpclient.model.LoanApplication;
 @Service
 public class LoanApplicationService {
 
+	@Value("${fraud.service.protocol:http}")
+	private String fraudDetectionServiceProtocol;
+	
+	@Value("${fraud.service.servicename:localhost}")
+	private String fraudDetectionServiceName;
+	
+	@Value("${fraud.service.port:8080}")
+	private String fraudDetectionServicePort;
+
 	private RestTemplate restTemplate;
 
 	@Autowired
@@ -23,14 +33,11 @@ public class LoanApplicationService {
 		this.restTemplate = builder.build();
 	}
 
-	private final int port = 8080;
-
 	public LoanApplicationResult loanApplication(LoanApplication application) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		ResponseEntity<FraudCheckResult> response = restTemplate.exchange("http://localhost:" + port + "/fraudcheck",
+		ResponseEntity<FraudCheckResult> response = restTemplate.exchange(fraudDetectionServiceProtocol + "://" + fraudDetectionServiceName + ":" + fraudDetectionServicePort + "/fraudcheck",
 				HttpMethod.PUT, new HttpEntity<>(application, headers), FraudCheckResult.class);
-		System.out.println("Response: " + response.toString());
 
 		return new LoanApplicationResult("FRAUD".equalsIgnoreCase(response.getBody().getFraudCheckStatus())
 				? LoanApplicationStatus.LOAN_APPLICATION_REJECTED

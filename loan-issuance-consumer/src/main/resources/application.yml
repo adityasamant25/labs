@@ -1,0 +1,16 @@
+--- 
+spring:
+    profiles: local
+fraud.service: 
+    protocol: http
+    servicename: localhost
+    port: 8080
+---
+spring:
+    profiles: docker
+fraud.service:
+    protocol: http
+    servicename: fraud-detection-service
+    port: 8080
+
+server:  port: 8090

@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "fraud.service.port",
+    "type": "java.lang.String",
+    "description": "A description for 'fraud.service.port'"
+  },
+  {
+    "name": "fraud.service.protocol",
+    "type": "java.lang.String",
+    "description": "A description for 'fraud.service.protocol'"
+  },
+  {
+    "name": "fraud.service.servicename",
+    "type": "java.lang.String",
+    "description": "A description for 'fraud.service.servicename'"
+  }
+]}
