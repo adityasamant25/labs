@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-issuance-deployment
+  labels:
+    app: loan-issuance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan-issuance
+  template:
+    metadata:
+      labels:
+        app: loan-issuance
+    spec:
+      containers:
+      - name: loan-issuance
+        image: adityasamant/loan-issuance-consumer:1.1.2
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "docker"
+        ports:
+        - containerPort: 8090
