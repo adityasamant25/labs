@@ -15,7 +15,7 @@ import com.example.httpclient.service.LoanApplicationStatus;
 
 @SpringBootTest
 @AutoConfigureStubRunner(ids = {
-		"com.example:http-server:1.1.0:stubs:8080" }, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
+		"com.example:http-server:1.2.0-SNAPSHOT:stubs:8080" }, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 class LoanIssuanceConsumerApplicationTests {
 
 	@Autowired

@@ -1,6 +1,32 @@
+server:
+  port: 8090
+  
+spring:
+    zipkin:
+      base-url: http://localhost:9411/
+      service:
+        name: loan-issuance-service
+    application:
+      name: loan-issuance-consumer
+    cloud:
+      kubernetes:
+        config:
+          name: loan-issuance-consumer-cm
+          namespace: default
+          sources:
+          # Spring Cloud Kubernetes will lookup a ConfigMap named c1 in namespace default
+          - name: loan-issuance-consumer-cm
+
+fraud.service: 
+    protocol: http
+    servicename: localhost
+    port: 8080
+
+
+    
 --- 
 spring:
-    profiles: local
+    profiles: default
 fraud.service: 
     protocol: http
     servicename: localhost
@@ -12,5 +38,5 @@ fraud.service:
     protocol: http
     servicename: fraud-detection-service
     port: 8080
-
-server:  port: 8090
+  
+  

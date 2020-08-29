@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loan-issuance-consumer-cm
+data:
+  application.yml: |-
+    fraud.service: 
+      protocol: http
+      servicename: fraud-detection-service
+      port: 8080
