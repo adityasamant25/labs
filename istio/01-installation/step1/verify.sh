@@ -1,17 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-#output=$(istioctl version)
-
-#if [[ $output == 1* ]]; then
-#  echo "istioctl is installed"
-#  exit 0
-#else
-#  echo "istioctl is not installed"
-#  exit 1
-#fi
-
-if istioctl version; then
-  exit 0
-else
-  exit 1
-fi
+istioctl version | grep "no ready Istio pods"
