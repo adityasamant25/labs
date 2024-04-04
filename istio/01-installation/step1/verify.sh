@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-binary_name="istioctl"
+output=$(istioctl version)
 
-if which "$binary_name" 2> /dev/null ; then
+if [[ $output == 1* ]]; then
   echo "istioctl is installed"
   exit 0
 else
