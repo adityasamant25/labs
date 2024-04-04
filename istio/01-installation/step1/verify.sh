@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 binary_name="istioctl"
 
-if which "$binary_name" 2> /dev/null;
-then
-    echo "$binary_name is installed.";
+if which "$binary_name" 2> /dev/null ; then
+  echo "istioctl is installed"
+  exit 0
 else
-    echo "$binary_name is not installed.";
-    exit 1;
+  echo "istioctl is not installed"
+  exit 1
 fi
