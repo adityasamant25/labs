@@ -9,4 +9,5 @@ then
     echo "$binary_name is installed."
 else
     echo "$binary_name is not installed."
+    exit 1
 fi
